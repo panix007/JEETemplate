@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  
+	<activeProfiles>
+		<activeProfile>dev</activeProfile>
+	</activeProfiles>
+
+	<profiles>
+		<!-- profile>   
+			<id>sonar</id>   
+			<activation>      
+				<activeByDefault>true</activeByDefault>   
+			</activation>   
+			<properties>      
+				<sonar.jdbc.url>jdbc:postgresql://localhost/sonar</sonar.jdbc.url>      
+				<sonar.jdbc.driver>org.postgresql.Driver</sonar.jdbc.driver>      
+				<sonar.jdbc.username>user</sonar.jdbc.username>      
+				<sonar.jdbc.password>password</sonar.jdbc.password>      
+				<sonar.host.url>http://localhost:9000</sonar.host.url>   
+			</properties>
+		</profile -->	
+		<profile>
+			<id>dev</id>
+			<!-- Dev Env. Properties -->
+			<properties>
+				<profile.name>dev</profile.name>
+				<!-- Database Properties -->
+				<db.driverClass>com.mysql.jdbc.Driver</db.driverClass>
+				<db.connectionURL>jdbc:mysql://localhost:3306/rv</db.connectionURL>
+				<db.username>root</db.username>
+				<db.password></db.password>
+				<hibernate.dialect>org.hibernate.dialect.MySQLDialect</hibernate.dialect>
+				<!-- JMS Properties -->
+				<jms.factory.initial>org.apache.activemq.jndi.ActiveMQInitialContextFactory</jms.factory.initial>
+				<jms.provider.url>tcp://localhost:61616</jms.provider.url>
+				<jms.queue>dev.queue</jms.queue>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<!-- Test Env. Properties -->
+			<properties>
+				<profile.name>test</profile.name>
+				<!-- Database Properties -->
+				<db.driverClass>org.h2.Driver</db.driverClass>
+				<db.connectionURL>jdbc:h2:~/test</db.connectionURL>
+				<db.username>sa</db.username>
+				<db.password></db.password>
+				<hibernate.dialect>org.hibernate.dialect.H2Dialect</hibernate.dialect>
+				<!-- JMS Properties -->
+				<jms.factory.initial>org.apache.activemq.jndi.ActiveMQInitialContextFactory</jms.factory.initial>
+				<jms.provider.url>tcp://192.168.1.2:61616</jms.provider.url>
+				<jms.queue>test.queue</jms.queue>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<!-- Prod Env. Properties -->
+			<properties>
+				<profile.name>prod</profile.name>
+				<!-- Database Properties -->
+				<db.driverClass>com.mysql.jdbc.Driver</db.driverClass>
+				<db.connectionURL>jdbc:mysql://192.168.1.1:3306/emp</db.connectionURL>
+				<db.username>root</db.username>
+				<db.password></db.password>
+				<hibernate.dialect>org.hibernate.dialect.MySQLDialect</hibernate.dialect>
+				<!-- JMS Properties -->
+				<jms.factory.initial>org.apache.activemq.jndi.ActiveMQInitialContextFactory</jms.factory.initial>
+				<jms.provider.url>tcp://192.168.1.1:61616</jms.provider.url>
+				<jms.queue>prod.queue</jms.queue>
+			</properties>
+		</profile>
+	</profiles>
+	<servers>
+		<server>
+		  <id>myserver</id>
+		  <username>myusername</username>
+		  <password>mypassword</password>
+		</server>	
+	</servers>
+</settings>

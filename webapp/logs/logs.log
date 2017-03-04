@@ -1,0 +1,115 @@
+05/Jan/2016 21:01:02,012- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+05/Jan/2016 21:01:46,982- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+05/Jan/2016 21:01:47,038- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+03/Mar/2017 00:47:24,863- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+03/Mar/2017 00:47:26,533- SchemaExport: HHH000389: Unsuccessful: alter table device_user drop foreign key FK3fxngx67r7ed4pcycfiy8369s
+03/Mar/2017 00:47:26,534- SchemaExport: Table 'rv.device_user' doesn't exist
+03/Mar/2017 00:47:26,536- SchemaExport: HHH000389: Unsuccessful: alter table device_user drop foreign key FK8qg4r8yv8hs4cyfu5oqghy3cw
+03/Mar/2017 00:47:26,537- SchemaExport: Table 'rv.device_user' doesn't exist
+03/Mar/2017 00:47:26,538- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FK2bo847lbelqdv9pk2dvuch8tn
+03/Mar/2017 00:47:26,539- SchemaExport: Table 'rv.user_device' doesn't exist
+03/Mar/2017 00:47:26,540- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FKe95nbfk2fh0xbve9litxwlext
+03/Mar/2017 00:47:26,540- SchemaExport: Table 'rv.user_device' doesn't exist
+03/Mar/2017 00:47:27,591- SchemaExport: HHH000389: Unsuccessful: create table user (id bigint not null auto_increment, emailAddress varchar(100), firstName varchar(100), lastName varchar(100), password varchar(100), phoneNumber varchar(100), capturedate DATE DEFAULT CURRENT_DATE, lattitude varchar(100), longitude varchar(100), primary key (id))
+03/Mar/2017 00:47:27,591- SchemaExport: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CURRENT_DATE,
+        lattitude varchar(100),
+        longitude varchar(100),
+  ' at line 8
+03/Mar/2017 00:47:28,989- SchemaExport: HHH000389: Unsuccessful: alter table device_user add constraint FK3fxngx67r7ed4pcycfiy8369s foreign key (locations_id) references user (id)
+03/Mar/2017 00:47:28,990- SchemaExport: Cannot add foreign key constraint
+03/Mar/2017 00:47:29,695- SchemaExport: HHH000389: Unsuccessful: alter table user add constraint UK_t40ack6c3x1y4m2nhaju018jg unique (emailAddress)
+03/Mar/2017 00:47:29,696- SchemaExport: Table 'rv.user' doesn't exist
+03/Mar/2017 00:47:30,928- SchemaExport: HHH000389: Unsuccessful: alter table user_device add constraint FKe95nbfk2fh0xbve9litxwlext foreign key (User_id) references user (id)
+03/Mar/2017 00:47:30,928- SchemaExport: Cannot add foreign key constraint
+03/Mar/2017 01:34:24,997- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+03/Mar/2017 01:35:14,451- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+03/Mar/2017 01:35:15,542- SchemaExport: HHH000389: Unsuccessful: alter table device_location drop foreign key FKgp7ccq30auypjji9wlu0fqugq
+03/Mar/2017 01:35:15,542- SchemaExport: Table 'rv.device_location' doesn't exist
+03/Mar/2017 01:35:15,544- SchemaExport: HHH000389: Unsuccessful: alter table device_location drop foreign key FKbb9xu4y2m7lej8yuecxukbg99
+03/Mar/2017 01:35:15,544- SchemaExport: Table 'rv.device_location' doesn't exist
+03/Mar/2017 01:35:15,560- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FK2bo847lbelqdv9pk2dvuch8tn
+03/Mar/2017 01:35:15,560- SchemaExport: Table 'rv.user_device' doesn't exist
+03/Mar/2017 01:35:15,564- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FKe95nbfk2fh0xbve9litxwlext
+03/Mar/2017 01:35:15,565- SchemaExport: Table 'rv.user_device' doesn't exist
+03/Mar/2017 01:47:21,368- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+03/Mar/2017 01:47:23,414- SchemaExport: HHH000389: Unsuccessful: alter table device_device_location drop foreign key FK2bnc2bn242ryam651w6prb4a8
+03/Mar/2017 01:47:23,414- SchemaExport: Table 'rv.device_device_location' doesn't exist
+03/Mar/2017 01:47:23,416- SchemaExport: HHH000389: Unsuccessful: alter table device_device_location drop foreign key FKm0y9ha2565y41akwq9x6fjmh1
+03/Mar/2017 01:47:23,416- SchemaExport: Table 'rv.device_device_location' doesn't exist
+03/Mar/2017 01:47:23,419- SchemaExport: HHH000389: Unsuccessful: alter table device_location drop foreign key FKrnn8t9mfh93h5tlu1yhk0pw3n
+03/Mar/2017 01:47:23,421- SchemaExport: Table 'rv.device_location' doesn't exist
+03/Mar/2017 01:47:23,423- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FK2bo847lbelqdv9pk2dvuch8tn
+03/Mar/2017 01:47:23,424- SchemaExport: Table 'rv.user_device' doesn't exist
+03/Mar/2017 01:47:23,425- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FKe95nbfk2fh0xbve9litxwlext
+03/Mar/2017 01:47:23,426- SchemaExport: Table 'rv.user_device' doesn't exist
+03/Mar/2017 02:11:06,603- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+03/Mar/2017 02:11:08,154- SchemaExport: HHH000389: Unsuccessful: alter table device_location drop foreign key FKgp7ccq30auypjji9wlu0fqugq
+03/Mar/2017 02:11:08,154- SchemaExport: Table 'rv.device_location' doesn't exist
+03/Mar/2017 02:11:08,156- SchemaExport: HHH000389: Unsuccessful: alter table device_location drop foreign key FKbb9xu4y2m7lej8yuecxukbg99
+03/Mar/2017 02:11:08,156- SchemaExport: Table 'rv.device_location' doesn't exist
+03/Mar/2017 02:11:08,158- SchemaExport: HHH000389: Unsuccessful: alter table location drop foreign key FKon405o7rbhcnt6ka08i3uxrl2
+03/Mar/2017 02:11:08,158- SchemaExport: Table 'rv.location' doesn't exist
+03/Mar/2017 02:11:08,159- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FK2bo847lbelqdv9pk2dvuch8tn
+03/Mar/2017 02:11:08,160- SchemaExport: Table 'rv.user_device' doesn't exist
+03/Mar/2017 02:11:08,161- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FKe95nbfk2fh0xbve9litxwlext
+03/Mar/2017 02:11:08,161- SchemaExport: Table 'rv.user_device' doesn't exist
+04/Mar/2017 09:21:36,495- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 09:30:43,270- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 09:30:50,742- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 09:30:51,004- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+04/Mar/2017 09:50:26,835- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 09:50:28,550- SchemaExport: HHH000389: Unsuccessful: alter table location drop foreign key FKon405o7rbhcnt6ka08i3uxrl2
+04/Mar/2017 09:50:28,550- SchemaExport: Table 'rv.location' doesn't exist
+04/Mar/2017 09:50:28,552- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FK2bo847lbelqdv9pk2dvuch8tn
+04/Mar/2017 09:50:28,552- SchemaExport: Table 'rv.user_device' doesn't exist
+04/Mar/2017 09:50:28,554- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FKe95nbfk2fh0xbve9litxwlext
+04/Mar/2017 09:50:28,555- SchemaExport: Table 'rv.user_device' doesn't exist
+04/Mar/2017 09:53:39,797- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 10:31:16,017- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 10:31:16,111- SchemaExport: HHH000389: Unsuccessful: alter table location drop foreign key FKon405o7rbhcnt6ka08i3uxrl2
+04/Mar/2017 10:31:16,111- SchemaExport: Table 'rv.location' doesn't exist
+04/Mar/2017 10:31:16,159- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FK2bo847lbelqdv9pk2dvuch8tn
+04/Mar/2017 10:31:16,159- SchemaExport: Can't DROP 'FK2bo847lbelqdv9pk2dvuch8tn'; check that column/key exists
+04/Mar/2017 10:31:16,196- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FKe95nbfk2fh0xbve9litxwlext
+04/Mar/2017 10:31:16,196- SchemaExport: Can't DROP 'FKe95nbfk2fh0xbve9litxwlext'; check that column/key exists
+04/Mar/2017 10:33:58,748- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 10:34:00,655- SchemaExport: HHH000389: Unsuccessful: alter table location drop foreign key FKon405o7rbhcnt6ka08i3uxrl2
+04/Mar/2017 10:34:00,655- SchemaExport: Table 'rv.location' doesn't exist
+04/Mar/2017 10:34:00,657- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FK2bo847lbelqdv9pk2dvuch8tn
+04/Mar/2017 10:34:00,657- SchemaExport: Table 'rv.user_device' doesn't exist
+04/Mar/2017 10:34:00,659- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FKe95nbfk2fh0xbve9litxwlext
+04/Mar/2017 10:34:00,659- SchemaExport: Table 'rv.user_device' doesn't exist
+04/Mar/2017 10:41:18,511- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 10:41:41,302- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 10:41:41,458- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+04/Mar/2017 10:47:08,119- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 10:47:08,217- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+04/Mar/2017 10:55:46,275- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 11:06:37,555- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 11:17:07,846- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 11:17:07,994- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+04/Mar/2017 11:17:16,959- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 11:17:17,087- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+04/Mar/2017 14:21:12,214- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 14:21:13,918- SchemaExport: HHH000389: Unsuccessful: alter table location drop foreign key FKon405o7rbhcnt6ka08i3uxrl2
+04/Mar/2017 14:21:13,918- SchemaExport: Table 'rv.location' doesn't exist
+04/Mar/2017 14:21:13,920- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FK2bo847lbelqdv9pk2dvuch8tn
+04/Mar/2017 14:21:13,920- SchemaExport: Table 'rv.user_device' doesn't exist
+04/Mar/2017 14:21:13,921- SchemaExport: HHH000389: Unsuccessful: alter table user_device drop foreign key FKe95nbfk2fh0xbve9litxwlext
+04/Mar/2017 14:21:13,922- SchemaExport: Table 'rv.user_device' doesn't exist
+04/Mar/2017 14:23:13,416- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 14:27:28,707- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 15:21:24,862- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 16:09:27,331- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 16:09:47,302- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 16:09:47,375- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+04/Mar/2017 16:10:10,635- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 16:10:10,806- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+04/Mar/2017 16:11:05,970- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 16:11:06,034- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+04/Mar/2017 16:21:22,126- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 16:21:22,367- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+04/Mar/2017 16:21:52,918- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 16:21:53,130- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+04/Mar/2017 16:23:38,529- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 16:23:38,665- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
