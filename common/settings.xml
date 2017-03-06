@@ -28,9 +28,9 @@
 				<profile.name>dev</profile.name>
 				<!-- Database Properties -->
 				<db.driverClass>com.mysql.jdbc.Driver</db.driverClass>
-				<db.connectionURL>jdbc:mysql://localhost:3306/rv</db.connectionURL>
+				<db.connectionURL>jdbc:mysql://ec2-35-165-7-218.us-west-2.compute.amazonaws.com:3306/rv</db.connectionURL>
 				<db.username>root</db.username>
-				<db.password></db.password>
+				<db.password>root</db.password>
 				<hibernate.dialect>org.hibernate.dialect.MySQLDialect</hibernate.dialect>
 				<!-- JMS Properties -->
 				<jms.factory.initial>org.apache.activemq.jndi.ActiveMQInitialContextFactory</jms.factory.initial>

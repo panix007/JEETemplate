@@ -113,3 +113,6 @@
 04/Mar/2017 16:21:53,130- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
 04/Mar/2017 16:23:38,529- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
 04/Mar/2017 16:23:38,665- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+04/Mar/2017 17:53:14,586- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 17:53:22,833- connections: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+04/Mar/2017 17:53:22,941- EntityManagerFactoryRegistry: HHH000436: Entity manager factory name (PersistenceUnit) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
