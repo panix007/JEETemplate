@@ -19,13 +19,14 @@ public class LocationController {
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
+	@PermitAll
 	@Path("/location")
 	public Response createLocation(Location location) {
 		LocationServices locationServices = new LocationServices();
 		locationServices.createLocation(location);
 		return Response.status(200).entity(location).build();
-	}	
-	
+	}
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@PermitAll
@@ -35,5 +36,5 @@ public class LocationController {
 		List<Location> locations = locationServices.getAllLocations();
 		return Response.status(200).entity(locations).build();
 	}
-	
+
 }

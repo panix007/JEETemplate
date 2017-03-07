@@ -1,5 +1,6 @@
 package com.ntahr.webapp.services;
 
+import java.util.Calendar;
 import java.util.List;
 
 import com.ntahr.common.dataaccess.genericdao.DaoBase;
@@ -11,8 +12,11 @@ public class LocationServices {
 	public void createLocation(Location location) {
 		IDaoBase<Location> daoBase = new DaoBase<Location>(Location.class);
 		daoBase.getEntityManager().getTransaction().begin();
+		if (location.getCapturedDate() == null){
+			location.setCapturedDate(Calendar.getInstance());
+		}
 		daoBase.save(location);
-		daoBase.getEntityManager().getTransaction().commit();		
+		daoBase.getEntityManager().getTransaction().commit();
 	}
 
 	public List<Location> getAllLocations() {

@@ -38,4 +38,13 @@ public class UserController {
 		return Response.status(200).entity(users).build();
 	}
 
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/authenticate")
+	public Response authenticate(User user) {
+
+		// UserServices userServices = new UserServices();
+		// userServices.createUser(user);
+		return Response.status(200).entity(user).build();
+	}
 }
