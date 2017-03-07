@@ -1,7 +1,14 @@
 package com.ntahr.security.auth;
 
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import com.ntahr.common.dataaccess.genericdao.DaoBase;
+import com.ntahr.common.dataaccess.genericdao.IDaoBase;
+import com.ntahr.common.dataaccess.objects.User;
 import com.ntahr.security.auth.token.JWTTokenHelper;
 
 public class DefaultAuthenticator implements Authenticator {
@@ -26,12 +33,23 @@ public class DefaultAuthenticator implements Authenticator {
 	}
 
 	private AUTH_RESULTS authenticate(Credentials credentials) {
-		// TODO: proper implementation
-		if ("user".equalsIgnoreCase(credentials.getUsername())
-				&& "password".equalsIgnoreCase(credentials.getPassword())) {
+		if (authenticateUser(credentials)) {
 			return AUTH_RESULTS.AUTHENTICATED;
 		}
 		return AUTH_RESULTS.NOT_AUTHENTICATED;
+	}
+
+	private Boolean authenticateUser(Credentials credentials){
+		IDaoBase<User> daoBase = new DaoBase<User>(User.class);
+		EntityManager em = daoBase.getEntityManager();
+		TypedQuery<User> query = em.createQuery(
+				"SELECT user FROM User AS user WHERE user.emailAddress = :email and user.password = :password", User.class
+				).setParameter("email", credentials.getUsername()).setParameter("password", credentials.getPassword());
+		List<User> results = query.getResultList();
+		if (results != null && !results.isEmpty()){
+			return Boolean.TRUE;
+		}
+		return Boolean.FALSE;
 	}
 
 	@Override
