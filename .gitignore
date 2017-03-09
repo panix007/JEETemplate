@@ -16,5 +16,5 @@ log/
 target/
 
 # Ignore folders
-webapp/WebContent/
+
 webapp/logs/

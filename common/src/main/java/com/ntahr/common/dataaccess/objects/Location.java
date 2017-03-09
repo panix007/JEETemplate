@@ -22,10 +22,10 @@ public class Location {
 	Long id;
 	
 	@Column(length = 100)
-	String lattitude;
+	Double lattitude;
 	
 	@Column(length = 100)
-	String longitude;
+	Double longitude;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "capturedate", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -43,19 +43,19 @@ public class Location {
 		this.id = id;
 	}
 
-	public String getLattitude() {
+	public Double getLattitude() {
 		return lattitude;
 	}
 
-	public void setLattitude(String lattitude) {
+	public void setLattitude(Double lattitude) {
 		this.lattitude = lattitude;
 	}
 
-	public String getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(String longitude) {
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
 
