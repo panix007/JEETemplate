@@ -7,6 +7,7 @@
     <persistence-unit name="PersistenceUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>com.ntahr.common.dataaccess.objects.Customer</class>
+        <class>com.ntahr.common.dataaccess.objects.DeviceModel</class>
         <class>com.ntahr.common.dataaccess.objects.Device</class>
         <class>com.ntahr.common.dataaccess.objects.Location</class>
         <class>com.ntahr.common.dataaccess.objects.User</class>
@@ -17,7 +18,7 @@
 			<property name="hibernate.connection.username" value="${db.username}"/>
 			<property name="hibernate.connection.password" value="${db.password}"/>
             <property name="hibernate.dialect" value="${hibernate.dialect}"/>
-            <!-- property name="hibernate.hbm2ddl.auto" value="create"/ -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="true"/>
         </properties>
