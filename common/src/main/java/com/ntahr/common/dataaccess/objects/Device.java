@@ -1,11 +1,6 @@
 package com.ntahr.common.dataaccess.objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "device") // @Table is optional
@@ -13,28 +8,26 @@ public class Device {
 
 	@Id // @Id indicates that this it a unique primary key
 	@GeneratedValue (strategy=GenerationType.IDENTITY)
-	Long id;
+	private Long deviceId;
 
 	@Column(length = 100)
-	String deviceId;
+	private String deviceName;
+
+	@ManyToOne
+	@JoinColumn(name = "modelId")
+	private DeviceModel deviceModel;
 
 	@Column(length = 100)
-	String deviceName;
-	
+	private String deviceType;
 
-	public Long getId() {
-		return id;
-	}
+	@Column(length = 1)
+	private Boolean deviceEnabled;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getDeviceId() {
+	public Long getDeviceId() {
 		return deviceId;
 	}
 
-	public void setDeviceId(String deviceId) {
+	public void setDeviceId(Long deviceId) {
 		this.deviceId = deviceId;
 	}
 
@@ -46,5 +39,28 @@ public class Device {
 		this.deviceName = deviceName;
 	}
 
+	public DeviceModel getDeviceModel() {
+		return deviceModel;
+	}
+
+	public void setDeviceModel(DeviceModel deviceModel) {
+		this.deviceModel = deviceModel;
+	}
+
+	public Boolean getDeviceEnabled() {
+		return deviceEnabled;
+	}
+
+	public void setDeviceEnabled(Boolean deviceEnabled) {
+		this.deviceEnabled = deviceEnabled;
+	}
+
+	public String getDeviceType() {
+		return deviceType;
+	}
+
+	public void setDeviceType(String deviceType) {
+		this.deviceType = deviceType;
+	}
 
 }
