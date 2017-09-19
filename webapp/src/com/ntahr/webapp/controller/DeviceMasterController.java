@@ -1,37 +1,65 @@
 package com.ntahr.webapp.controller;
 
-import com.ntahr.common.dataaccess.objects.Device;
-import com.ntahr.webapp.services.DeviceServices;
+import com.ntahr.common.dataaccess.objects.DeviceModel;
+import com.ntahr.webapp.services.DeviceMasterServices;
 
 import javax.annotation.security.PermitAll;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+@Path("/entities")
 public class DeviceMasterController {
 
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @PermitAll
-    @Path("/devicemaster")
-    public Response createDeviceMaster(Device device) {
-        DeviceServices deviceServices = new DeviceServices();
-        deviceServices.createDevice(device);
-        return Response.status(200).entity(device).build();
+    @Path("/devicemodel")
+    public Response createDeviceMaster(DeviceModel deviceModel) {
+        DeviceMasterServices deviceMasterServices = new DeviceMasterServices();
+        deviceMasterServices.createDeviceModel(deviceModel);
+        return Response.status(200).entity(deviceModel).build();
     }
 
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @PermitAll
-    @Path("/devicemaster")
+    @Path("/devicemodels")
     public Response getAllDeviceMaster() {
-        DeviceServices deviceServices = new DeviceServices();
-        List<Device> devices = deviceServices.getAllDevices();
-        return Response.status(200).entity(devices).build();
+        DeviceMasterServices deviceMasterServices = new DeviceMasterServices();
+        List<DeviceModel> deviceModels = deviceMasterServices.getAllDeviceModels();
+        return Response.status(200).entity(deviceModels).build();
+    }
+
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @PermitAll
+    @Path("/devicemodels/{modelName}")
+    public Response getDeviceMasterByName(@PathParam("modelName") String modelName) {
+        DeviceMasterServices deviceMasterServices = new DeviceMasterServices();
+        List<DeviceModel> deviceModels = deviceMasterServices.getDeviceMasterByName(modelName);
+        return Response.status(200).entity(deviceModels).build();
+    }
+
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @PermitAll
+    @Path("/devicemodel")
+    public Response deleteDeviceMaster(DeviceModel deviceModel) {
+        DeviceMasterServices deviceMasterServices = new DeviceMasterServices();
+        deviceMasterServices.deleteDeviceModel(deviceModel);
+        return Response.status(200).entity(deviceModel).build();
+    }
+
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @PermitAll
+    @Path("/devicemodel")
+    public Response updateDeviceMaster(DeviceModel deviceModel) {
+        DeviceMasterServices deviceMasterServices = new DeviceMasterServices();
+        deviceMasterServices.updateDeviceModel(deviceModel);
+        return Response.status(200).entity(deviceModel).build();
     }
 }
