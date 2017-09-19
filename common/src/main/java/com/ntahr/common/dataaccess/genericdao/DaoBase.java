@@ -1,15 +1,14 @@
 package com.ntahr.common.dataaccess.genericdao;
 
-import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-
+import com.ntahr.common.dataaccess.util.PersistenceUtil;
 import org.hibernate.criterion.DetachedCriteria;
 
-import com.ntahr.common.dataaccess.util.PersistenceUtil;
+import javax.persistence.EntityManager;
+import javax.persistence.FlushModeType;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import java.io.Serializable;
+import java.util.List;
 
 public class DaoBase<T> implements IDaoBase<T> {
 
@@ -20,7 +19,8 @@ public class DaoBase<T> implements IDaoBase<T> {
 	public DaoBase(Class<T> classType) {
 		this.classType = classType;
 		entityManager = PersistenceUtil.getEntityManager();
-	}
+        entityManager.setFlushMode(FlushModeType.COMMIT);
+    }
 	
 	DaoBase(Class<T> classType, EntityManager entityManager){
 		this.classType = classType;
@@ -62,8 +62,8 @@ public class DaoBase<T> implements IDaoBase<T> {
 
 	@Override
 	public T get(Serializable id) {
-		return (T) entityManager.find(this.classType, id);
-	}
+        return entityManager.find(this.classType, id);
+    }
 
 	public List<T> getListByCriteria(DetachedCriteria detachedCriteria) {
 		// TODO Auto-generated method stub

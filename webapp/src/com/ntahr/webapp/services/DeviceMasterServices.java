@@ -28,16 +28,23 @@ public class DeviceMasterServices {
 
     public void createDeviceModel(DeviceModel deviceModel) {
         IDaoBase<DeviceModel> daoBase = new DaoBase<DeviceModel>(DeviceModel.class);
+        daoBase.getEntityManager().getTransaction().begin();
         daoBase.save(deviceModel);
+        daoBase.getEntityManager().getTransaction().commit();
     }
 
     public void deleteDeviceModel(DeviceModel deviceModel) {
         IDaoBase<DeviceModel> daoBase = new DaoBase<DeviceModel>(DeviceModel.class);
+        daoBase.getEntityManager().getTransaction().begin();
         daoBase.delete(deviceModel);
+        daoBase.getEntityManager().getTransaction().commit();
     }
 
     public void updateDeviceModel(DeviceModel deviceModel) {
         IDaoBase<DeviceModel> daoBase = new DaoBase<DeviceModel>(DeviceModel.class);
+        daoBase.getEntityManager().getTransaction().begin();
         daoBase.update(deviceModel);
+        daoBase.getEntityManager().getTransaction().commit();
+
     }
 }
