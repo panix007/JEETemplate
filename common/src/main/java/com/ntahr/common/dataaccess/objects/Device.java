@@ -23,6 +23,18 @@ public class Device {
 	@Column(length = 1)
 	private Boolean deviceEnabled;
 
+	public Device() {
+
+	}
+
+	public Device(Long deviceId, String deviceName, DeviceModel deviceModel, String deviceType, Boolean deviceEnabled) {
+		this.deviceId = deviceId;
+		this.deviceName = deviceName;
+		this.deviceModel = deviceModel;
+		this.deviceType = deviceType;
+		this.deviceEnabled = deviceEnabled;
+	}
+
 	public Long getDeviceId() {
 		return deviceId;
 	}
@@ -63,4 +75,14 @@ public class Device {
 		this.deviceType = deviceType;
 	}
 
+	@Override
+	public String toString() {
+		return "Device{" +
+				"deviceId=" + deviceId +
+				", deviceName='" + deviceName + '\'' +
+				", deviceModel=" + deviceModel +
+				", deviceType='" + deviceType + '\'' +
+				", deviceEnabled=" + deviceEnabled +
+				'}';
+	}
 }

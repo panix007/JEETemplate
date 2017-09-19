@@ -26,7 +26,9 @@
 		<jaxrs.version>2.0.1</jaxrs.version>
 		<jjwt.version>0.6.0</jjwt.version>
 		<gson.version>2.5</gson.version>
+        <mongo.version>3.4.2</mongo.version>
 		<sonar.language>java</sonar.language>
+        <spring-data-mongodb>1.10.6.RELEASE</spring-data-mongodb>
 	</properties>
 
 	<build>
@@ -83,4 +85,16 @@
 		<module>webapp</module>
 		<module>distribution</module>
 	</modules>
+
+    <repositories>
+        <repository>
+            <id>spring-libs-release</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
 </project>

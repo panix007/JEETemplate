@@ -1,17 +1,13 @@
 package com.ntahr.webapp.controller;
 
-import java.util.List;
-
-import javax.annotation.security.PermitAll;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
 import com.ntahr.common.dataaccess.objects.Device;
 import com.ntahr.webapp.services.DeviceServices;
+
+import javax.annotation.security.PermitAll;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.util.List;
 
 
 @Path("/entities")
@@ -35,5 +31,15 @@ public class DeviceController {
 		DeviceServices deviceServices = new DeviceServices();
 		List<Device> devices = deviceServices.getAllDevices();
 		return Response.status(200).entity(devices).build();		
+	}
+
+	@GET
+	@Consumes(MediaType.APPLICATION_JSON)
+	@PermitAll
+	@Path("/devices/model/{modelId}")
+	public Response getDevicesByModel(@PathParam("modelId") String modelId) {
+		DeviceServices deviceServices = new DeviceServices();
+		List<Device> devices = deviceServices.getDeviceByModel(modelId);
+		return Response.status(200).entity(devices).build();
 	}
 }

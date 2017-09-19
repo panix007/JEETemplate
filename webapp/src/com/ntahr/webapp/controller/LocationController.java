@@ -1,19 +1,15 @@
 package com.ntahr.webapp.controller;
 
-import java.util.List;
+import com.ntahr.common.dataaccess.mongo.exception.MongoException;
+import com.ntahr.common.dataaccess.mongo.objects.LocationPoint;
+import com.ntahr.webapp.services.LocationServices;
 
 import javax.annotation.security.PermitAll;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
-import com.ntahr.common.dataaccess.objects.Location;
-import com.ntahr.webapp.services.LocationServices;
+import java.util.List;
+import java.util.Set;
 
 @Path("/entities")
 public class LocationController {
@@ -21,50 +17,60 @@ public class LocationController {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@PermitAll
-	@Path("/location")
-	public Response createLocation(Location location) {
+	@Path("/location/{deviceId}")
+	public Response createLocation(LocationPoint location, @PathParam("deviceId") String deviceId) {
 		LocationServices locationServices = new LocationServices();
-		locationServices.createLocation(location);
+		try {
+			locationServices.createLocation(location, deviceId);
+		} catch (MongoException e) {
+			return Response.status(500).entity(e.getMessage()).build();
+		}
 		return Response.status(200).entity(location).build();
 	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@PermitAll
-	@Path("/locations")
-	public Response getAllLocations() {
+	@Path("/locations/{deviceId}")
+	public Response getLocationsByDevice(@PathParam("deviceId") String deviceId) {
 		LocationServices locationServices = new LocationServices();
-		List<Location> locations = locationServices.getAllLocations();
+		List<LocationPoint> locations = null;
+		try {
+			locations = locationServices.getLocationsByDevice(deviceId);
+		} catch (MongoException e) {
+			return Response.status(500).entity(e.getMessage()).build();
+		}
 		return Response.status(200).entity(locations).build();
 	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@PermitAll
-	@Path("/locationsbydate")
-	public Response getLocations(@QueryParam("fromDate") String fromDate, @QueryParam("toDate") String toDate) {
-		
-		if (fromDate != null && fromDate.length() > 0){
-			
-		}
-		
-		if (toDate != null && toDate.length() > 0){
-			
-		}
-		
-		
+	@Path("/locations/{deviceId}/{startTimeMillis}/{endTimeMillis}")
+	public Response getLocationsByDeviceAndDateRange(@PathParam("deviceId") String deviceId,
+													 @PathParam("startTimeMillis") String startTimeMillis, @PathParam("endTimeMillis") String endTimeMillis) {
 		LocationServices locationServices = new LocationServices();
-		List<Location> locations = locationServices.getAllLocations();
+		List<LocationPoint> locations = null;
+		try {
+			locations = locationServices.getLocationsByDevice(deviceId, Long.parseLong(startTimeMillis), Long.parseLong(endTimeMillis));
+		} catch (MongoException e) {
+			return Response.status(500).entity(e.getMessage()).build();
+		}
 		return Response.status(200).entity(locations).build();
 	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@PermitAll
-	@Path("/locationsbydevice")
-	public Response getAllLocationsByDevice() {
+	@Path("/deviceIds")
+	public Response getDevices() {
 		LocationServices locationServices = new LocationServices();
-		List<Location> locations = locationServices.getAllLocations();
-		return Response.status(200).entity(locations).build();
+		Set<String> devices = null;
+		try {
+			devices = locationServices.getDevices();
+		} catch (MongoException e) {
+			return Response.status(500).entity(e.getMessage()).build();
+		}
+		return Response.status(200).entity(devices).build();
 	}
 }

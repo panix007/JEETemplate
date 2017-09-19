@@ -1,17 +1,7 @@
 package com.ntahr.common.dataaccess.objects;
 
+import javax.persistence.*;
 import java.util.Calendar;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "location") // @Table is optional
@@ -34,7 +24,19 @@ public class Location {
 	
 	@OneToOne(fetch = FetchType.EAGER)
 	Device device;
-	
+
+    public Location(Long id, Double lattitude, Double longitude, Calendar capturedDate, Device device) {
+        this.id = id;
+        this.lattitude = lattitude;
+        this.longitude = longitude;
+        this.capturedDate = capturedDate;
+        this.device = device;
+    }
+
+    public Location() {
+        // Empty constructor
+    }
+
 	public Long getId() {
 		return id;
 	}
@@ -74,5 +76,15 @@ public class Location {
 	public void setDevice(Device device) {
 		this.device = device;
 	}
-	
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "id=" + id +
+                ", lattitude=" + lattitude +
+                ", longitude=" + longitude +
+                ", capturedDate=" + capturedDate +
+                ", device=" + device +
+                '}';
+    }
 }
