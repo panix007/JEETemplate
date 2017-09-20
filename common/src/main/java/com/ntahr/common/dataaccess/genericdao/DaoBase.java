@@ -53,11 +53,13 @@ public class DaoBase<T> implements IDaoBase<T> {
 	@Override
 	public void delete(T domain) {
 		entityManager.remove(domain);
+		entityManager.flush();
 	}
 
 	@Override
 	public void update(T domain) {
 		entityManager.merge(domain);
+		entityManager.flush();
 	}
 
 	@Override

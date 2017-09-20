@@ -19,7 +19,7 @@ public class DeviceMasterController {
     @Path("/devicemodel")
     public Response createDeviceMaster(DeviceModel deviceModel) {
         DeviceMasterServices deviceMasterServices = new DeviceMasterServices();
-        deviceMasterServices.createDeviceModel(deviceModel);
+        deviceMasterServices.create(deviceModel);
         return Response.status(200).entity(deviceModel).build();
     }
 
@@ -29,7 +29,7 @@ public class DeviceMasterController {
     @Path("/devicemodels")
     public Response getAllDeviceMaster() {
         DeviceMasterServices deviceMasterServices = new DeviceMasterServices();
-        List<DeviceModel> deviceModels = deviceMasterServices.getAllDeviceModels();
+        List<DeviceModel> deviceModels = deviceMasterServices.retrieve();
         return Response.status(200).entity(deviceModels).build();
     }
 
@@ -49,7 +49,7 @@ public class DeviceMasterController {
     @Path("/devicemodel")
     public Response deleteDeviceMaster(DeviceModel deviceModel) {
         DeviceMasterServices deviceMasterServices = new DeviceMasterServices();
-        deviceMasterServices.deleteDeviceModel(deviceModel);
+        deviceMasterServices.delete(deviceModel);
         return Response.status(200).entity(deviceModel).build();
     }
 
@@ -59,7 +59,7 @@ public class DeviceMasterController {
     @Path("/devicemodel")
     public Response updateDeviceMaster(DeviceModel deviceModel) {
         DeviceMasterServices deviceMasterServices = new DeviceMasterServices();
-        deviceMasterServices.updateDeviceModel(deviceModel);
+        deviceMasterServices.update(deviceModel);
         return Response.status(200).entity(deviceModel).build();
     }
 }

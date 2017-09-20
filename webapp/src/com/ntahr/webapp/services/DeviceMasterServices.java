@@ -8,12 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class DeviceMasterServices {
-
-    public List<DeviceModel> getAllDeviceModels() {
-        IDaoBase<DeviceModel> daoBase = new DaoBase<DeviceModel>(DeviceModel.class);
-        return daoBase.loadAll();
-    }
+public class DeviceMasterServices extends BaseService<DeviceModel> {
 
     public List<DeviceModel> getDeviceMasterByName(String deviceMasterName) {
         IDaoBase<DeviceModel> daoBase = new DaoBase<DeviceModel>(DeviceModel.class);
@@ -26,25 +21,8 @@ public class DeviceMasterServices {
         return query.getResultList();
     }
 
-    public void createDeviceModel(DeviceModel deviceModel) {
-        IDaoBase<DeviceModel> daoBase = new DaoBase<DeviceModel>(DeviceModel.class);
-        daoBase.getEntityManager().getTransaction().begin();
-        daoBase.save(deviceModel);
-        daoBase.getEntityManager().getTransaction().commit();
-    }
-
-    public void deleteDeviceModel(DeviceModel deviceModel) {
-        IDaoBase<DeviceModel> daoBase = new DaoBase<DeviceModel>(DeviceModel.class);
-        daoBase.getEntityManager().getTransaction().begin();
-        daoBase.delete(deviceModel);
-        daoBase.getEntityManager().getTransaction().commit();
-    }
-
-    public void updateDeviceModel(DeviceModel deviceModel) {
-        IDaoBase<DeviceModel> daoBase = new DaoBase<DeviceModel>(DeviceModel.class);
-        daoBase.getEntityManager().getTransaction().begin();
-        daoBase.update(deviceModel);
-        daoBase.getEntityManager().getTransaction().commit();
-
+    @Override
+    public IDaoBase<DeviceModel> getDaoBase() {
+        return new DaoBase<DeviceModel>(DeviceModel.class);
     }
 }

@@ -8,19 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class DeviceServices {
-	
-	public void createDevice(Device device){
-		IDaoBase<Device> daoBase = new DaoBase<Device>(Device.class);
-		daoBase.getEntityManager().getTransaction().begin();
-		daoBase.save(device);
-		daoBase.getEntityManager().getTransaction().commit();
-	}
-
-	public List<Device> getAllDevices() {
-		IDaoBase<Device> daoBase = new DaoBase<Device>(Device.class);
-		return daoBase.loadAll();
-	}
+public class DeviceServices extends BaseService<Device> {
 	
 	public List<Device> getDeviceByName(String deviceName){
 		IDaoBase<Device> daoBase = new DaoBase<Device>(Device.class);
@@ -44,4 +32,8 @@ public class DeviceServices {
 		return query.getResultList();
 	}
 
+	@Override
+	public IDaoBase getDaoBase() {
+		return new DaoBase<Device>(Device.class);
+	}
 }
