@@ -1,7 +1,8 @@
 package com.ntahr.webapp.controller;
 
+import com.ntahr.common.dataaccess.genericdao.DaoBase;
 import com.ntahr.common.dataaccess.objects.User;
-import com.ntahr.webapp.services.UserServices;
+import com.ntahr.webapp.services.BaseService;
 
 import javax.annotation.security.PermitAll;
 import javax.ws.rs.*;
@@ -17,8 +18,7 @@ public class UserController {
 	@PermitAll
 	@Path("/user")
 	public Response createUser(User user) {
-
-		UserServices userServices = new UserServices();
+		BaseService<User> userServices = new BaseService<>(() -> new DaoBase<>(User.class));
 		userServices.create(user);
 		return Response.status(200).entity(user).build();
 	}
@@ -28,7 +28,7 @@ public class UserController {
 	@PermitAll
 	@Path("/users")
 	public Response getAllUsers() {
-		UserServices userServices = new UserServices();
+		BaseService<User> userServices = new BaseService<>(() -> new DaoBase<>(User.class));
 		List<User> users = userServices.retrieve();
 		return Response.status(200).entity(users).build();
 	}
