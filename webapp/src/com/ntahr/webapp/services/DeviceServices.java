@@ -10,7 +10,7 @@ import java.util.List;
 public class DeviceServices extends BaseService<Device> {
 
 	public DeviceServices() {
-		super(() -> new DaoBase<>(Device.class));
+		super(new DaoBase<>(Device.class));
 	}
 
 	public List<Device> getDeviceByName(String deviceName){

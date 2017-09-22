@@ -18,7 +18,7 @@ public class UserController {
 	@PermitAll
 	@Path("/user")
 	public Response createUser(User user) {
-		BaseService<User> userServices = new BaseService<>(() -> new DaoBase<>(User.class));
+		BaseService<User> userServices = new BaseService<>(new DaoBase<>(User.class));
 		userServices.create(user);
 		return Response.status(200).entity(user).build();
 	}
@@ -28,7 +28,7 @@ public class UserController {
 	@PermitAll
 	@Path("/users")
 	public Response getAllUsers() {
-		BaseService<User> userServices = new BaseService<>(() -> new DaoBase<>(User.class));
+		BaseService<User> userServices = new BaseService<>(new DaoBase<>(User.class));
 		List<User> users = userServices.retrieve();
 		return Response.status(200).entity(users).build();
 	}

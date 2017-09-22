@@ -3,14 +3,13 @@ package com.ntahr.webapp.services;
 import com.ntahr.common.dataaccess.genericdao.IDaoBase;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 public class BaseService<T> {
 
     private IDaoBase<T> daoBase;
 
-    public BaseService(Supplier<? extends IDaoBase<T>> supplier) {
-        daoBase = supplier.get();
+    public BaseService(IDaoBase<T> daoBase) {
+        this.daoBase = daoBase;
     }
 
     public IDaoBase<T> getDaoBase() {
