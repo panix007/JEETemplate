@@ -17,9 +17,14 @@ public class BaseService<T> {
     }
 
     public void create(T t) {
-        daoBase.getEntityManager().getTransaction().begin();
-        daoBase.save(t);
-        daoBase.getEntityManager().getTransaction().commit();
+        try {
+            daoBase.getEntityManager().getTransaction().begin();
+            daoBase.save(t);
+            daoBase.getEntityManager().getTransaction().commit();
+        } catch (Throwable throwable) {
+            daoBase.getEntityManager().getTransaction().rollback();
+            throw throwable;
+        }
     }
 
     public List<T> retrieve() {
@@ -27,15 +32,25 @@ public class BaseService<T> {
     }
 
     public void update(T t) {
-        daoBase.getEntityManager().getTransaction().begin();
-        daoBase.update(t);
-        daoBase.getEntityManager().getTransaction().commit();
+        try {
+            daoBase.getEntityManager().getTransaction().begin();
+            daoBase.update(t);
+            daoBase.getEntityManager().getTransaction().commit();
+        } catch (Throwable throwable) {
+            daoBase.getEntityManager().getTransaction().rollback();
+            throw throwable;
+        }
     }
 
     public void delete(T t) {
-        daoBase.getEntityManager().getTransaction().begin();
-        daoBase.getEntityManager().remove(daoBase.getEntityManager().merge(t));
-        daoBase.getEntityManager().getTransaction().commit();
+        try {
+            daoBase.getEntityManager().getTransaction().begin();
+            daoBase.getEntityManager().remove(daoBase.getEntityManager().merge(t));
+            daoBase.getEntityManager().getTransaction().commit();
+        } catch (Throwable throwable) {
+            daoBase.getEntityManager().getTransaction().rollback();
+            throw throwable;
+        }
     }
 
 }

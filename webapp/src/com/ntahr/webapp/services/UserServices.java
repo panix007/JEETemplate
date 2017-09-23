@@ -4,8 +4,8 @@ import com.ntahr.common.dataaccess.genericdao.DaoBase;
 import com.ntahr.common.dataaccess.objects.Device;
 import com.ntahr.common.dataaccess.objects.User;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class UserServices extends BaseService<User> {
 
@@ -17,11 +17,13 @@ public class UserServices extends BaseService<User> {
 		User user = getDaoBase().get(Long.parseLong(userId));
 		DeviceServices deviceServices = new DeviceServices();
 		Device device = deviceServices.getDaoBase().get(Long.parseLong(deviceId));
-		List<Device> userDevices = user.getDevices();
+		Set<Device> userDevices = user.getDevices();
 		if (userDevices != null) {
 			userDevices.add(device);
 		} else {
-			user.setDevices(Arrays.asList(device));
+			userDevices = new HashSet<Device>();
+			userDevices.add(device);
+			user.setDevices(userDevices);
 		}
 		update(user);
 		return user;

@@ -1,14 +1,7 @@
 package com.ntahr.common.dataaccess.objects;
 
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "user") // @Table is optional
@@ -34,10 +27,10 @@ public class User {
 	String password;
 	
 	@OneToMany
-	List<Device> devices;
-	
-	public String getFirstName() {
-		return firstName;
+    Set<Device> devices;
+
+    public String getFirstName() {
+        return firstName;
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
@@ -66,12 +59,14 @@ public class User {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public List<Device> getDevices() {
-		return devices;
-	}
-	public void setDevices(List<Device> devices) {
-		this.devices = devices;
-	}
+
+    public Set<Device> getDevices() {
+        return devices;
+    }
+
+    public void setDevices(Set<Device> devices) {
+        this.devices = devices;
+    }
 	public String getPassword() {
 		return password;
 	}
