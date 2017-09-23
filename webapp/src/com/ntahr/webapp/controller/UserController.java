@@ -3,6 +3,7 @@ package com.ntahr.webapp.controller;
 import com.ntahr.common.dataaccess.genericdao.DaoBase;
 import com.ntahr.common.dataaccess.objects.User;
 import com.ntahr.webapp.services.BaseService;
+import com.ntahr.webapp.services.UserServices;
 
 import javax.annotation.security.PermitAll;
 import javax.ws.rs.*;
@@ -31,6 +32,26 @@ public class UserController {
 		BaseService<User> userServices = new BaseService<>(new DaoBase<>(User.class));
 		List<User> users = userServices.retrieve();
 		return Response.status(200).entity(users).build();
+	}
+
+	@PUT
+	@Produces(MediaType.APPLICATION_JSON)
+	@PermitAll
+	@Path("/user/{userId}/add/device/{deviceId}")
+	public Response updateUserWithDevice(@PathParam("userId") String userId, @PathParam("deviceId") String deviceId) {
+		UserServices userServices = new UserServices();
+		User user = userServices.addDeviceToUser(userId, deviceId);
+		return Response.status(200).entity(user).build();
+	}
+
+	@PUT
+	@Produces(MediaType.APPLICATION_JSON)
+	@PermitAll
+	@Path("/user/{userId}/remove/device/{deviceId}")
+	public Response updateUserDeleteDevice(@PathParam("userId") String userId, @PathParam("deviceId") String deviceId) {
+		UserServices userServices = new UserServices();
+		User user = userServices.deleteDeviceFromUser(userId, deviceId);
+		return Response.status(200).entity(user).build();
 	}
 
 	@POST

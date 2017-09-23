@@ -89,7 +89,7 @@ public class MongoDAOTest {
     public void filterOnDateRange() throws Exception {
         Map<String, String> queryMap = new HashMap<>();
         queryMap.put("deviceId", "3");
-        List<LocationPoint> locations = mongoDAO.filterOnDateRange(LocationPoint.class, "locations", queryMap, "recordedTime", System.currentTimeMillis() - 7000L, System.currentTimeMillis() - 3000);
+        List<LocationPoint> locations = mongoDAO.filterOnDateRange(LocationPoint.class, "locations", queryMap, "recordedTime", System.currentTimeMillis() - 10000L, System.currentTimeMillis() - 1000);
         assert locations != null && locations.size() != 0;
         locations.forEach(System.out::println);
     }
