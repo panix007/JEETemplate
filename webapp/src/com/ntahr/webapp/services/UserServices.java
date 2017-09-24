@@ -21,7 +21,7 @@ public class UserServices extends BaseService<User> {
 		if (userDevices != null) {
 			userDevices.add(device);
 		} else {
-			userDevices = new HashSet<Device>();
+			userDevices = new HashSet<>();
 			userDevices.add(device);
 			user.setDevices(userDevices);
 		}

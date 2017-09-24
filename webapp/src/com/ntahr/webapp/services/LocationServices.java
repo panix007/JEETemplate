@@ -17,6 +17,9 @@ public class LocationServices {
 	MongoDAO<LocationPoint> mongoDAO = new MongoDAO<>(MONGO_HOST, MONGO_PORT, MONGO_COLLECTION);
 
 	public void createLocation(LocationPoint location, String deviceId) throws MongoException {
+		if (location.getRecordedTime() == null) {
+			location.setRecordedTime(System.currentTimeMillis());
+		}
 		mongoDAO.insert(location, deviceId);
 	}
 

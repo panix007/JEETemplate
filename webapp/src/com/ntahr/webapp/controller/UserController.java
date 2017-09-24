@@ -54,13 +54,16 @@ public class UserController {
 		return Response.status(200).entity(user).build();
 	}
 
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("/authenticate")
-	public Response authenticate(User user) {
-
-		// UserServices userServices = new UserServices();
-		// userServices.createUser(user);
-		return Response.status(200).entity(user).build();
-	}
+//	@POST
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Path("/authenticate")
+//	public Response authenticate(@QueryParam("userName") String userName, @QueryParam("password") String password) {
+//		try {
+//			UserServices userServices = new UserServices();
+//			userServices.authenticate(userName, password);
+//		} catch (Throwable throwable){
+//			return Response.status(401).entity(throwable.getMessage()).build();
+//		}
+//		return Response.status(200).entity("Success").build();
+//	}
 }
