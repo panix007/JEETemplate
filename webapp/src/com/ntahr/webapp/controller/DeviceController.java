@@ -24,7 +24,7 @@ public class DeviceController {
 	}
 	
 	@GET
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	@PermitAll
 	@Path("/devices")
 	public Response getAllDevices(){
@@ -34,7 +34,7 @@ public class DeviceController {
 	}
 
 	@GET
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	@PermitAll
 	@Path("/devices/model/{modelId}")
 	public Response getDevicesByModel(@PathParam("modelId") String modelId) {

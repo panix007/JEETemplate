@@ -1,4 +1,5 @@
-package com.ntahr.webapp.services;
+package com.ntahr.common.services;
+
 
 import com.ntahr.common.dataaccess.genericdao.IDaoBase;
 

@@ -24,7 +24,7 @@ public class DeviceMasterController {
     }
 
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
     @Path("/devicemodels")
     public Response getAllDeviceMaster() {
@@ -34,7 +34,7 @@ public class DeviceMasterController {
     }
 
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
     @Path("/devicemodels/{modelName}")
     public Response getDeviceMasterByName(@PathParam("modelName") String modelName) {

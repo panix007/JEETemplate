@@ -3,6 +3,7 @@ package com.ntahr.webapp.services;
 import com.ntahr.common.dataaccess.genericdao.DaoBase;
 import com.ntahr.common.dataaccess.objects.Device;
 import com.ntahr.common.dataaccess.objects.User;
+import com.ntahr.common.services.BaseService;
 
 import java.util.HashSet;
 import java.util.Set;

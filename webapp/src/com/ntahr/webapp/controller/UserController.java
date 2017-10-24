@@ -2,7 +2,7 @@ package com.ntahr.webapp.controller;
 
 import com.ntahr.common.dataaccess.genericdao.DaoBase;
 import com.ntahr.common.dataaccess.objects.User;
-import com.ntahr.webapp.services.BaseService;
+import com.ntahr.common.services.BaseService;
 import com.ntahr.webapp.services.UserServices;
 
 import javax.annotation.security.PermitAll;

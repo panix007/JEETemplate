@@ -2,6 +2,7 @@ package com.ntahr.webapp.services;
 
 import com.ntahr.common.dataaccess.genericdao.DaoBase;
 import com.ntahr.common.dataaccess.objects.Device;
+import com.ntahr.common.services.BaseService;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
