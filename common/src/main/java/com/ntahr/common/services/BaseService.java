@@ -2,6 +2,7 @@ package com.ntahr.common.services;
 
 
 import com.ntahr.common.dataaccess.genericdao.IDaoBase;
+import com.ntahr.common.dataaccess.objects.PaginationDetails;
 
 import java.util.List;
 
@@ -32,6 +33,10 @@ public class BaseService<T> {
         return daoBase.loadAll();
     }
 
+    public List<T> retrievePage(int offset, int size) {
+        return daoBase.loadOffset(offset, size);
+    }
+
     public void update(T t) {
         try {
             daoBase.getEntityManager().getTransaction().begin();
@@ -52,6 +57,10 @@ public class BaseService<T> {
             daoBase.getEntityManager().getTransaction().rollback();
             throw throwable;
         }
+    }
+
+    public PaginationDetails getPaginationDetails(int size) {
+        return daoBase.getPaginationDetails(size);
     }
 
 }

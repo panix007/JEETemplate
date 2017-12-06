@@ -1,34 +1,38 @@
 package com.ntahr.common.dataaccess.genericdao;
 
-import java.io.Serializable;
-import java.util.List;
+import com.ntahr.common.dataaccess.objects.PaginationDetails;
+import org.hibernate.criterion.DetachedCriteria;
 
 import javax.persistence.EntityManager;
-
-import org.hibernate.criterion.DetachedCriteria;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Base interface for CRUD operations and common queries
  */
 public interface IDaoBase<T> {
 
-	public List<T> loadAll();
+	List<T> loadAll();
 
-	public void save(T domain);
+	List<T> loadOffset(int offset, int size);
 
-	public void update(T domain);
+	PaginationDetails getPaginationDetails(int size);
 
-	public void delete(T domain);
+	void save(T domain);
 
-	public T get(Serializable id);
+	void update(T domain);
 
-	public List<T> getListByCriteria(DetachedCriteria detachedCriteria);
+	void delete(T domain);
 
-	public List<T> getListByCriteria(DetachedCriteria detachedCriteria, int offset, int size);
+	T get(Serializable id);
 
-	public void close();
+	List<T> getListByCriteria(DetachedCriteria detachedCriteria);
 
-	public void setEntityManager(EntityManager entityManager);
+	List<T> getListByCriteria(DetachedCriteria detachedCriteria, int offset, int size);
 
-	public EntityManager getEntityManager();
+	void close();
+
+	EntityManager getEntityManager();
+
+	void setEntityManager(EntityManager entityManager);
 }

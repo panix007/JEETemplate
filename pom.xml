@@ -18,7 +18,7 @@
 		<log4j.version>1.2.17</log4j.version>
 		<spring-framework.version>4.2.3.RELEASE</spring-framework.version>
 		<spring-boot.version>1.3.0.RELEASE</spring-boot.version>
-		<hibernate-framework.version>5.0.4.Final</hibernate-framework.version>
+		<hibernate-framework.version>5.1.5.Final</hibernate-framework.version>
 		<h2database-version>1.4.190</h2database-version>
 		<mysql-version>5.1.38</mysql-version>
 		<flyway-version>3.2.1</flyway-version>

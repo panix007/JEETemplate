@@ -1,6 +1,7 @@
 package com.ntahr.webapp.controller;
 
 import com.ntahr.common.dataaccess.objects.DeviceModel;
+import com.ntahr.common.dataaccess.objects.PaginationDetails;
 import com.ntahr.webapp.services.DeviceMasterServices;
 
 import javax.annotation.security.PermitAll;
@@ -27,10 +28,26 @@ public class DeviceMasterController {
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
     @Path("/devicemodels")
-    public Response getAllDeviceMaster() {
+    public Response getAllDeviceMaster(@QueryParam("offset") String offset, @QueryParam("size") String size) {
         DeviceMasterServices deviceMasterServices = new DeviceMasterServices();
-        List<DeviceModel> deviceModels = deviceMasterServices.retrieve();
+        List<DeviceModel> deviceModels;
+        if (offset != null && size != null) {
+            deviceModels = deviceMasterServices.retrievePage(Integer.parseInt(offset), Integer.parseInt(size));
+        } else {
+            deviceModels = deviceMasterServices.retrieve();
+        }
+
         return Response.status(200).entity(deviceModels).build();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @PermitAll
+    @Path("/devicemodels/pagination/{size}")
+    public Response getDeviceMasterPaginationDetails(@PathParam("size") String size) {
+        DeviceMasterServices deviceMasterServices = new DeviceMasterServices();
+        PaginationDetails paginationDetails = deviceMasterServices.getPaginationDetails(Integer.parseInt(size));
+        return Response.status(200).entity(paginationDetails).build();
     }
 
     @GET
